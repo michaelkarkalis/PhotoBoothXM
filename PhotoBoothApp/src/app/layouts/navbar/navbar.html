@@ -1,0 +1,32 @@
+<header>
+  <mat-toolbar color="primary">
+    <h1 class="app-title">
+      <a routerLink="/" aria-label="PhotoBooth XM - Go to homepage">
+        PhotoBooth XM
+      </a>
+    </h1>
+
+    <span class="spacer"></span>
+
+    <nav aria-label="Primary navigation">
+      <a
+        mat-button
+        routerLink="/photos"
+        routerLinkActive="active"
+        #photosLink="routerLinkActive"
+        [attr.aria-current]="photosLink.isActive ? 'page' : null">
+        <mat-icon aria-hidden="true">photo_library</mat-icon>
+        Photos
+      </a>
+
+      <a
+        mat-button
+        routerLink="/favorites"
+        routerLinkActive="active"
+        #favoritesLink="routerLinkActive"
+        [attr.aria-current]="favoritesLink.isActive ? 'page' : null">
+        <mat-icon aria-hidden="true">favorite</mat-icon>
+        Favorites
+      </a>
+    </nav>
+  </mat-toolbar>

@@ -1,0 +1,24 @@
+.app-title {
+  a {
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  margin-left: 8px;
+
+  mat-icon {
+    margin-right: 4px;
+  }
+
+  &.active {
+    background-color: var(--mat-sys-primary-container);
+    color: var(--mat-sys-on-primary-container);
+  }
+}
