@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 import { Favorites } from './favorites';
 
@@ -8,13 +9,14 @@ describe('Favorites', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Favorites]
+      imports: [Favorites],
+      providers: [provideZonelessChangeDetection()]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(Favorites);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    await fixture.whenStable();
   });
 
   it('should create', () => {

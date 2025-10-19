@@ -1,1 +1,17 @@
-<p>favorites works!</p>
+<div class="grid">
+  @for (img of service.favorites(); track img.id; let i = $index) {
+  <app-image-card
+    [image]="img"
+    [enableNavigation]="true"
+    (onNavigate)="navigateToDetail($event)"
+    [index]="i"
+  />
+  }
+</div>
+
+@if (service.favorites().length === 0) {
+<div class="no-favorites">
+  <h2>You have no favorite images yet.</h2>
+  <p>Mark images as favorite to see them here.</p>
+</div>
+}
