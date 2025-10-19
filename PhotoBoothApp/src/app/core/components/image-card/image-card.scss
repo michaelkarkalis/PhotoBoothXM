@@ -1,0 +1,81 @@
+.image-wrap {
+  position: relative;
+  border-radius: 15px;
+  border: 2px solid #e0e0e0;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 3px 5px 8px rgb(111 110 110);
+  }
+
+  &:focus-within {
+    box-shadow: 3px 5px 8px rgb(111 110 110);
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 3px 5px 8px rgb(111 110 110);
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+
+  &.clickable-image {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    outline: none;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    &:focus {
+      transform: scale(1.02);
+    }
+
+    &:focus:not(:focus-visible) {
+      border: none;
+    }
+
+    &:focus-visible {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.favorite-btn,
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    color: #e91e63;
+  }
+
+  &:hover mat-icon {
+    color: #e91e63;
+  }
+}

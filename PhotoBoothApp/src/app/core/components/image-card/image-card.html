@@ -1,0 +1,29 @@
+<div class="image-wrap">
+  <img
+    [ngSrc]="image().url"
+    [alt]="'Photo ' + image().id"
+    (click)="action()"
+    (keydown.enter)="action()"
+    width="800"
+    height="600"
+    [priority]="index() !== null && index()! < 9"
+    class="clickable-image"
+    tabindex="0"
+    role="button"
+    [attr.aria-label]="'Photo ' + image().id + '. Press Enter to ' + (enableFavorite() ? 'toggle favorite' : 'view details')"
+  />
+
+  @if (enableFavorite()) {
+  <button
+    class="favorite-btn"
+    (click)="toggleFavorite(); $event.stopPropagation()"
+    [attr.aria-label]="favoriteService.isFavorite(image()) ? 'Remove from favorites' : 'Add to favorites'"
+    [attr.aria-pressed]="favoriteService.isFavorite(image())"
+        tabindex="-1"
+    type="button">
+    <mat-icon [attr.aria-hidden]="true">
+      @if (favoriteService.isFavorite(image())) { favorite } @else { favorite_border }
+    </mat-icon>
+  </button>
+  }
+</div>
