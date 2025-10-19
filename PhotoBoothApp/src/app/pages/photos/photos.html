@@ -1,1 +1,23 @@
-<p>photos works!</p>
+<div
+  class="scroller"
+  infiniteScroll
+  (reachedEnd)="loadMore()"
+  [disabled]="imageApiService.loading()">
+
+  <div class="grid">
+    @for (image of imageApiService.images(); track image.id; let i = $index) {
+    <app-image-card
+      [image]="image"
+      [enableFavorite]="true"
+      (onFavoriteToggle)="favoriteService.toggleFavorite(image)"
+      [index]="i"
+    />
+    }
+  </div>
+
+  @if (imageApiService.loading()) {
+  <div class="loading-spinner">
+    <mat-spinner [diameter]="30" />
+  </div>
+  }
+</div>

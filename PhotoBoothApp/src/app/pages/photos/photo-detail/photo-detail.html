@@ -1,0 +1,23 @@
+<div class="photo-detail-container">
+  <div class="photo-wrapper">
+    @if (image()) {
+    <img [src]="image()!.url" [alt]="'Photo ' + image()!.id" class="full-screen-photo" priority />
+    } @else {
+    <p>Photo not found.</p>
+    }
+
+    <div class="action-buttons">
+      <button mat-raised-button color="primary" (click)="goBack()" class="back-button">
+        <mat-icon>arrow_back</mat-icon>
+        Back to Favorites
+      </button>
+
+      @if (isFavorite()) {
+      <button mat-raised-button color="warn" (click)="removeFromFavorites()" class="remove-button">
+        <mat-icon>delete</mat-icon>
+        Remove from Favorites
+      </button>
+      }
+    </div>
+  </div>
+</div>
