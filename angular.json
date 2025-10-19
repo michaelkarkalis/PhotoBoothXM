@@ -28,8 +28,7 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
-            "baseHref": "/PhotoBoothXM/"
+            ]
           },
           "configurations": {
             "production": {

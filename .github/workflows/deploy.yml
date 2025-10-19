@@ -25,11 +25,11 @@ jobs:
       - run: npm ci
       - name: Build
         run: |
-          npx ng build --configuration production --base-href "/PhotoBoothXM/"
+          npx ng build --configuration production
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/PhotoBoothApp
+          path: dist/PhotoBoothApp/browser
   deploy:
     needs: build
     runs-on: ubuntu-latest
