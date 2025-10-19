@@ -5,14 +5,14 @@ import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: 'root',
 })
-export class FavoriteService implements OnInit {
+export class FavoriteService {
   private readonly STORAGE_KEY = 'photo-booth-favorites';
   private readonly _favorites = signal<Image[]>([]);
   private readonly localStorageService = inject(LocalStorageService);
 
   readonly favorites = computed(() => this._favorites());
 
-  ngOnInit() {
+  constructor() {
     this.loadFromStorage();
   }
 
