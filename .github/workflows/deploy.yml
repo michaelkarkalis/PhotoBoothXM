@@ -26,6 +26,8 @@ jobs:
       - name: Build
         run: |
           npx ng build --configuration production
+      - name: Copy index.html to 404.html
+        run: cp dist/PhotoBoothApp/browser/index.html dist/PhotoBoothApp/browser/404.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
